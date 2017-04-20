@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net452": {
+      "wrappedProject": "../../Logic/Logic.csproj",
+      "bin": {
+        "assembly": "../../Logic/obj/{configuration}/Logic.exe",
+        "pdb": "../../Logic/obj/{configuration}/Logic.pdb"
+      },
+      "dependencies": {
+        "EntityFramework": "6.1.3"
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+<ion-content>
+  <ion-grid no-padding>
+    <ion-row align-items-center>
+      <ion-col col-sm-6 offset-sm-3 col-md-4 offset-md-4 style="position: initial">
+        <h1 style="text-align: center">Logo</h1>
+        <ion-list>
+
+          <ion-item>
+            <ion-label floating>Username</ion-label>
+            <ion-input type="text" value=""> </ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" value=""></ion-input>
+          </ion-item>
+
+        </ion-list>
+
+        <div padding style="text-align: center">
+          <button ion-button color="primary" round outline (click)="signIn()">Sign In</button>
+        </div>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>
+      <div style="text-align: center" padding>
+        <span>Not a member? Sign up now</span>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>
