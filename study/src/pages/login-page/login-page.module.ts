@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ViewChild } from '@angular/core';
 import { IonicModule } from 'ionic-angular';
 import { LoginPage } from './login-page';
-import { LoadingController } from 'ionic-angular';
+import { LoadingController, Slides } from 'ionic-angular';
 
 @NgModule({
   declarations: [
@@ -11,4 +11,11 @@ import { LoadingController } from 'ionic-angular';
     LoginPage
   ]
 })
-export class LoginPageModule {}
+export class LoginPageModule {
+  @ViewChild(Slides) slides: Slides;
+  constructor()
+  {
+    
+  }
+
+}

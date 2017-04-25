@@ -1,36 +1,84 @@
-<ion-content>
-  <ion-grid no-padding>
-    <ion-row align-items-center>
-      <ion-col col-sm-6 offset-sm-3 col-md-4 offset-md-4 style="position: initial">
-        <h1 style="text-align: center">Logo</h1>
-        <ion-list>
+<ion-slides pager>
+  <ion-slide style="background-image: url('./images/login-background.jpg')" >
+    <ion-header style="    background-color: rgba(246, 84, 197, 0.4);
+    padding-bottom: 10px;
+    padding-top: 10px;">
+      <ion-row align-items-end>
+        <ion-col style="text-align: center;">
+            Login
+        </ion-col>
+      </ion-row>
+    </ion-header>
 
-          <ion-item>
-            <ion-label floating>Username</ion-label>
-            <ion-input type="text" value=""> </ion-input>
-          </ion-item>
+    <ion-grid no-padding>
+      <ion-row align-items-center>
+        <ion-col col-sm-6 offset-sm-3 col-md-4 offset-md-4 style="position: initial">
+          <img src="./images/logo.png" style="width: 60px; height: 60px;" alt="Logo">
+          <ion-list>
 
-          <ion-item>
-            <ion-label floating>Password</ion-label>
-            <ion-input type="password" value=""></ion-input>
-          </ion-item>
+            <ion-item style="background-color: inherit">
+              <ion-label floating>Username</ion-label>
+              <ion-input type="text" value=""> </ion-input>
+            </ion-item>
 
-        </ion-list>
+            <ion-item style="background-color: inherit">
+              <ion-label floating>Password</ion-label>
+              <ion-input type="password" value=""></ion-input>
+            </ion-item>
 
-        <div padding style="text-align: center">
-          <button ion-button color="primary" round outline (click)="signIn()">Sign In</button>
-        </div>
+          </ion-list>
 
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-content>
-<ion-footer>
-  <ion-toolbar>
-    <ion-title>
-      <div style="text-align: center" padding>
-        <span>Not a member? Sign up now</span>
-      </div>
-    </ion-title>
-  </ion-toolbar>
-</ion-footer>
+          <div padding style="text-align: center">
+            <button ion-button color="primary" round outline (click)="signIn()">Sign In</button>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-sm-6 offset-sm-3 col-md-4 offset-md-4 style="position: initial">
+          <button ion-button clear color="secondary" (click)="slideToSignUp()">Did not have account? Sign Up From Here</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-slide>
+  <ion-slide style="background-image: url('./images/signup-background.jpg')">
+        <ion-header style="    background-color: rgba(69, 223, 214, 0.4);
+    padding-bottom: 10px;
+    padding-top: 10px;">
+      <ion-row align-items-end>
+        <ion-col style="text-align: center;">
+            Sign Up
+        </ion-col>
+      </ion-row>
+    </ion-header>
+    <ion-grid no-padding>
+
+      <ion-row align-items-center>
+        <ion-col col-sm-6 offset-sm-3 col-md-4 offset-md-4 style="position: initial">
+          <img src="./images/logo.png" style="width: 60px; height: 60px;" alt="Logo">
+          <ion-list>
+
+            <ion-item style="background-color: inherit">
+              <ion-label floating>Username</ion-label>
+              <ion-input type="text" value=""> </ion-input>
+            </ion-item>
+
+            <ion-item style="background-color: inherit">
+              <ion-label floating>Email</ion-label>
+              <ion-input type="email" value=""></ion-input>
+            </ion-item>
+
+          </ion-list>
+
+          <div padding style="text-align: center">
+            <button ion-button color="secondary" round outline (click)="signIn()">Sign Up</button>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-sm-6 offset-sm-3 col-md-4 offset-md-4 style="position: initial">
+          <button ion-button clear (click)="slideToSignIn()">Have an account? Sign In From Here</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-slide>
+</ion-slides>
