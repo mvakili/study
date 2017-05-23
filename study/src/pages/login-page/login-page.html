@@ -1,11 +1,11 @@
-<ion-slides pager>
-  <ion-slide style="background-image: url('./images/login-background.jpg')" >
-    <ion-header style="    background-color: rgba(246, 84, 197, 0.4);
+<ion-slides [pager]="false">
+  <ion-slide style="background-image: url('./images/login-background.jpg')">
+    <ion-header style="    background-color: rgba(246, 84, 197, 0.1);
     padding-bottom: 10px;
     padding-top: 10px;">
       <ion-row align-items-end>
         <ion-col style="text-align: center;">
-            Login
+          Login
         </ion-col>
       </ion-row>
     </ion-header>
@@ -33,20 +33,19 @@
           </div>
         </ion-col>
       </ion-row>
-      <ion-row>
-        <ion-col col-sm-6 offset-sm-3 col-md-4 offset-md-4 style="position: initial">
-          <button ion-button clear color="secondary" (click)="slideToSignUp()">Did not have account? Sign Up From Here</button>
-        </ion-col>
-      </ion-row>
+
     </ion-grid>
+    <ion-footer>
+      <button ion-button clear color="dark" (click)="slideToSignUp()">Did not have account? Sign Up From Here</button>
+    </ion-footer>
   </ion-slide>
   <ion-slide style="background-image: url('./images/signup-background.jpg')">
-        <ion-header style="    background-color: rgba(69, 223, 214, 0.4);
+    <ion-header style="    background-color: rgba(69, 223, 214, 0.1);
     padding-bottom: 10px;
     padding-top: 10px;">
       <ion-row align-items-end>
         <ion-col style="text-align: center;">
-            Sign Up
+          Sign Up
         </ion-col>
       </ion-row>
     </ion-header>
@@ -76,9 +75,12 @@
       </ion-row>
       <ion-row>
         <ion-col col-sm-6 offset-sm-3 col-md-4 offset-md-4 style="position: initial">
-          <button ion-button clear (click)="slideToSignIn()">Have an account? Sign In From Here</button>
+
         </ion-col>
       </ion-row>
     </ion-grid>
+    <ion-footer>
+      <button ion-button clear color="dark" (click)="slideToSignIn()">Have an account? Sign In From Here</button>
+    </ion-footer>
   </ion-slide>
 </ion-slides>
