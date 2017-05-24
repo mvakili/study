@@ -1,7 +1,7 @@
 import { Component, trigger, state, style, transition, animate, keyframes, ViewChild } from '@angular/core';
 import { NavController, LoadingController, Grid, Slides } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-
+import {Http, Headers, RequestOptions} from '@angular/http';
 
 @Component({
   selector: 'page-login',
@@ -10,7 +10,7 @@ import { Storage } from '@ionic/storage';
 export class LoginPage {
   @ViewChild(Slides) slides: Slides;
 
-  constructor(public navCtrl: NavController, public loadingCtrl: LoadingController, storage: Storage) {
+  constructor(public navCtrl: NavController, public loadingCtrl: LoadingController, storage: Storage, public http: Http) {
     storage.ready().then(() => {
     })
   }
@@ -26,6 +26,7 @@ export class LoginPage {
       content: "Please wait...",
       duration: 3000
     });
+
     loader.present();
   }
   
