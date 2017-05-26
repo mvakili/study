@@ -22,7 +22,7 @@ namespace Logic.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Errors {
+    public class Errors {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Logic.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Logic.Resources.Errors", typeof(Errors).Assembly);
@@ -51,7 +51,7 @@ namespace Logic.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,16 @@ namespace Logic.Resources {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string EmailFormatError {
+        public static string EmailDuplicateError {
+            get {
+                return ResourceManager.GetString("EmailDuplicateError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string EmailFormatError {
             get {
                 return ResourceManager.GetString("EmailFormatError", resourceCulture);
             }
@@ -72,7 +81,7 @@ namespace Logic.Resources {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string EmailMaxLengthError {
+        public static string EmailMaxLengthError {
             get {
                 return ResourceManager.GetString("EmailMaxLengthError", resourceCulture);
             }
@@ -81,7 +90,7 @@ namespace Logic.Resources {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string PasswordMinLengthError {
+        public static string PasswordMinLengthError {
             get {
                 return ResourceManager.GetString("PasswordMinLengthError", resourceCulture);
             }
@@ -90,7 +99,7 @@ namespace Logic.Resources {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string UserNameFormatError {
+        public static string UserNameFormatError {
             get {
                 return ResourceManager.GetString("UserNameFormatError", resourceCulture);
             }
@@ -99,7 +108,7 @@ namespace Logic.Resources {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string UserNameIsUniqueError {
+        public static string UserNameIsUniqueError {
             get {
                 return ResourceManager.GetString("UserNameIsUniqueError", resourceCulture);
             }
@@ -108,7 +117,7 @@ namespace Logic.Resources {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string UserNameMaxLengthError {
+        public static string UserNameMaxLengthError {
             get {
                 return ResourceManager.GetString("UserNameMaxLengthError", resourceCulture);
             }
@@ -117,7 +126,7 @@ namespace Logic.Resources {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
-        internal static string UserNameMinLengthError {
+        public static string UserNameMinLengthError {
             get {
                 return ResourceManager.GetString("UserNameMinLengthError", resourceCulture);
             }
