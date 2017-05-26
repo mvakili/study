@@ -9,13 +9,19 @@ namespace WebApi.Controllers.Home
 {
 	public partial class HomeController
 	{
+        public class PostModel
+        {
+            public int i { get; set; }
+            public int j { get; set; }
+        }
+
         [HttpPost]
-        public ApiResult<int> Post([FromBody] int i)
+        public ApiResult<int> Post([FromBody] PostModel obj)
         {
             return new ApiResult<int>
             {
                 ResultStatus = ResultStatus.Successful,
-                Data = i
+                Data = obj.i * obj.j
             };
         }
     }
