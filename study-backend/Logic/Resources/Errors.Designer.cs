@@ -99,6 +99,15 @@ namespace Logic.Resources {
         /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
+        public static string UnhandledError {
+            get {
+                return ResourceManager.GetString("UnhandledError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
         public static string UserNameFormatError {
             get {
                 return ResourceManager.GetString("UserNameFormatError", resourceCulture);
