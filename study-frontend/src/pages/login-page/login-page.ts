@@ -4,6 +4,7 @@ import { Storage } from '@ionic/storage';
 import {Http, Headers, RequestOptions} from '@angular/http';
 import {Account} from './../../services';
 import { ResultStatus} from './../../communication';
+import {SignupPage} from './../signup/signup';
 
 @Component({
   selector: 'page-login',
@@ -65,6 +66,11 @@ export class LoginPage {
             message: 'Email is valid'
           });
           toast.present();
+          this.navCtrl.push(SignupPage,
+             {
+               email: this.email
+              }
+            );
       }
     }).catch(err => {
       loader.dismiss();
