@@ -61,7 +61,7 @@ namespace Logic.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Entered email address is registered before.
         /// </summary>
         public static string EmailDuplicateError {
             get {
@@ -70,7 +70,7 @@ namespace Logic.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Email format is invalid.
         /// </summary>
         public static string EmailFormatError {
             get {
@@ -79,7 +79,7 @@ namespace Logic.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Email length must smaller than 40 characters.
         /// </summary>
         public static string EmailMaxLengthError {
             get {
@@ -97,7 +97,7 @@ namespace Logic.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Unhandled error occurred.
         /// </summary>
         public static string UnhandledError {
             get {
