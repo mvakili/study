@@ -14,7 +14,7 @@ export class Request {
             params = '"'+params+'"';
         }
         let headers = new Headers({ 'Content-Type': 'application/json' });
-        let options = new RequestOptions({ headers: headers });
+        let options = new RequestOptions({ headers: headers, withCredentials: true});
         return this.http.post('http://localhost:49901/api/'+controller+'/'+ method, params , options)
         .map<Response,R>(res => res.json()).toPromise();
     }
