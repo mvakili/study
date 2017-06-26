@@ -17,17 +17,32 @@ namespace WebApi.Controllers
 	{
 
         [HttpPost]
-        public ApiResult EmailValidate([FromBody] string input)
+        public ApiResult UsernameValidate([FromBody] string input)
         {
             var result = new ApiResult();
+
             try
             {
-                if (input.Length > 40)
+                if (!input.StartsWith("@"))
                 {
                     result.ResultStatus = ResultStatus.Failed;
-                    result.Errors.Add(DAL.Resources.Errors.EmailMaxLengthError);
+                    result.Errors.Add(DAL.Resources.Errors.UserNameFormatError);
+                } else
+                {
+                    input = input.Remove(0, 1);
                 }
-                else if (!Regex.IsMatch(input, "([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})"))
+
+                if (input.Length < 3)
+                {
+                    result.ResultStatus = ResultStatus.Failed;
+                    result.Errors.Add(DAL.Resources.Errors.UserNameMinLengthError);
+                }
+                else if (input.Length > 20)
+                {
+                    result.ResultStatus = ResultStatus.Failed;
+                    result.Errors.Add(DAL.Resources.Errors.UserNameMaxLengthError);
+                }
+                else if (!Regex.IsMatch(input, "([A-Za-z._0-9]+)"))
                 {
                     result.ResultStatus = ResultStatus.Failed;
                     result.Errors.Add(DAL.Resources.Errors.EmailFormatError);
@@ -36,23 +51,25 @@ namespace WebApi.Controllers
                 {
                     using (var context = new StudyContext())
                     {
-                        if (context.Users.Any(u => u.Email == input))
+                        if (context.Users.Any(u => u.UserName == input))
                         {
                             result.ResultStatus = ResultStatus.Failed;
-                            result.Errors.Add(DAL.Resources.Errors.EmailDuplicateError);
+                            result.Errors.Add(DAL.Resources.Errors.UserNameDuplicateError);
                         }
                     }
                 }
+                return result;
 
             }
-            catch
+            catch (Exception)
             {
                 result.Errors.Clear();
                 result.ResultStatus = ResultStatus.Thrown;
                 result.Errors.Add(DAL.Resources.Errors.UnhandledError);
+                return result;
             }
             
-            return result;
+            
         }
     }
 }

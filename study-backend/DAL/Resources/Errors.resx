@@ -117,10 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Target" xml:space="preserve">
-    <value>H4sIAAAAAAAEAM1Xy27jNhTdF+g/EFy1QMaMk1m0hjyDxElao3ESjDKzp6VrmyhFakQqtVH0y7roJ/UXeqn3w8/JtCi8kal7zz085H3o7z//8t6vI0leIDFCqzEdDs4pARXoUKjlmKZ28eYH+v7dt994t2G0Jp9Ku0tnh57KjOnK2njEmAlWEHEziESQaKMXdhDoiPFQs4vz8x/ZcMgAIShiEeJ9SJUVEWR/8O9EqwBim3I50yFIU6zjGz9DJQ88AhPzAMb0Xi9FQMmVFByD+yAXlHCltOUWqY0+GvBtotXSj3GBy+dNDGi34NJAQXlUmx/L/vzCsWe1YwkVpMbq6ETA4WUhB+u6f5GotJILBbtFYe3G7ToTbUxRkISSbqDRRCbOqNBzkLkJMANnfkayxbPqvPFauN8ZmaTSpgmMFaQ24fKMPKVzKYJfYPOsfwU1VqmUTTpICN+1FnDpKdExJHbzARYFyWlICWv7sa5j5dbwybcwVfbygpIHDM7nEqrTbmzXtzqBn0BBwi2ET9xaSJTDgEyvXvROLKeKeyoj4hXDBKFkxtf3oJZ2NaYXmBF3Yg1huVCQ+KgEphP62CSFLST3B76NuJB7or79V6I+cWN+00n4MzerMvi1UDzZtILj4/boJ4abmqvAipdK3WutJXB1AMdj9V3vZwCWFMsFnncRw7dpmC3C2m5JBzzgIiNMoVmbcQ7qg21cCENJzSAvRYM827bRrAjVxY3l1a2sgmxHGfRmPI7x4BtlsVghfl4TJ2/80ytHlGOwwGwpIBXbKhImEF9C5y2GRqZ3IjH2hls+5+6QJmHUM2vJv0PaMlRT4W7pqAUvrd1z7pFXsuwEOm61Yne4iQhzPtsPVKGLMtlzyzoQlzzZUnsmWqaR2lW/9nnX1aSJUa8ej1SUhyZMsXQ8RjvZm1DtN8cj1vnc0qha7SN5rHM+3XNnvYPvdIvuLdqXgV2TKnqViZ2M84rbf3g66aVDbkIJSvQiwiwVNsZCNHAGA/+znEiB+60NZlyJBRibN1RsK8OLzrTz/5k8mDGhPGL8+M8nAuEUPdjzT2xT3SFAvfAkWPFt09VUhbAe09/J1GAn/pzCiDxjUyF/9EaG18wDrybw9nQC20YDpDHPpoPvIr7+/tXtfy7sV239/RZ1uLfvbO15Po9pONfIN2dYDANf2PX7tcVjze8j7waMWNYQ7mtJQeCOuQYtbaZqoUt5cUdNRqVJR/0ZWB6iMFeJFQseWHwdgDHZoPmJyzS7dHMIp+oxtXFqr4yBaC5bI7PH9sfPRps2Z+8xdv/M19gC0hS4BXhU16mQYcX7bsvN2QHh7khRKpAVDtoIt9xUSA9aHQlUyHcDMShXaJ4hiiWCmUflc3fHT+eG1+seljzYlC1iN8jhg2jL7t0Ivkx4ZAqM2t998zP30f/uH2+JMEsmEAAA</value>
+  <data name="EmailDuplicateError" xml:space="preserve">
+    <value>Entered email address is registered before</value>
   </data>
-  <data name="DefaultSchema" xml:space="preserve">
-    <value>dbo</value>
+  <data name="EmailFormatError" xml:space="preserve">
+    <value>Email format is invalid</value>
+  </data>
+  <data name="EmailMaxLengthError" xml:space="preserve">
+    <value>Email length must smaller than 40 characters</value>
+  </data>
+  <data name="PasswordAndConfirmPasswordNotEqualError" xml:space="preserve">
+    <value>Password and confrim password are nor equal</value>
+  </data>
+  <data name="PasswordMaxLengthError" xml:space="preserve">
+    <value>Password length must smaller than 20 characters</value>
+  </data>
+  <data name="PasswordMinLengthError" xml:space="preserve">
+    <value>Username length must bigger or equal than 8 characters</value>
+  </data>
+  <data name="UnhandledError" xml:space="preserve">
+    <value>Unhandled error occurred</value>
+  </data>
+  <data name="UserNameDuplicateError" xml:space="preserve">
+    <value>Entered username is registered before</value>
+  </data>
+  <data name="UserNameFormatError" xml:space="preserve">
+    <value>Username format is invalid</value>
+  </data>
+  <data name="UserNameMaxLengthError" xml:space="preserve">
+    <value>Username length must smallerthan 21 characters</value>
+  </data>
+  <data name="UserNameMinLengthError" xml:space="preserve">
+    <value>Username length must bigger than 4 characters</value>
+  </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>User Not Found</value>
   </data>
 </root>

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Logic.Entities
+namespace DAL.Entities
 {
     public class User
     {
@@ -18,7 +18,7 @@ namespace Logic.Entities
         [Index(IsUnique = true)]
         [MaxLength(20, ErrorMessageResourceType = typeof(Resources.Errors), ErrorMessageResourceName = "UserNameMaxLengthError")]
         [MinLength(3 , ErrorMessageResourceType = typeof(Resources.Errors), ErrorMessageResourceName = "UserNameMinLengthError")]
-        [RegularExpression("([A-Za-z._])", ErrorMessageResourceType = typeof(Resources.Errors), ErrorMessageResourceName = "UserNameFormatError")]
+        [RegularExpression("([A-Za-z._0-9]+)", ErrorMessageResourceType = typeof(Resources.Errors), ErrorMessageResourceName = "UserNameFormatError")]
         public string UserName { get; set; }
 
         [Required]
@@ -28,22 +28,10 @@ namespace Logic.Entities
         public string Email { get; set; }
 
         [Required]
-        public byte[] PasswordHash { get; protected set; }
-
-        [Required]
-        [MinLength(8, ErrorMessageResourceType = typeof(Resources.Errors), ErrorMessageResourceName = "EmailFormatError")]
-        public string Password
-        {
-            set
-            {
-                var hashFunction = System.Security.Cryptography.MD5.Create();
-                PasswordHash = hashFunction.ComputeHash(Encoding.UTF8.GetBytes(value));
-            }
-        }
-
-        [Required]
-        [DefaultValue(false)]
-        public bool IsActive { get; set; }
+        [Index(IsUnique = true)]
+        [MaxLength(20, ErrorMessageResourceType = typeof(Resources.Errors), ErrorMessageResourceName = "PasswordMaxLengthError")]
+        [MinLength(8, ErrorMessageResourceType = typeof(Resources.Errors), ErrorMessageResourceName = "PasswordMinLengthError")]
+        public string Password { get; set; }
 
     }
 }

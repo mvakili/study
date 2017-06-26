@@ -117,31 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="EmailDuplicateError" xml:space="preserve">
-    <value>Entered email address is registered before</value>
+  <data name="Target" xml:space="preserve">
+    <value>H4sIAAAAAAAEAM1X3W7bNhS+H7B3IHidmrHTi86QWmR2MhiLk6BKe09Lxw4xilJJKrUx7Ml2sUfaK+xQ/5Zsx06XovCNRZ2f73znj/r373+8D+tYkifQRiTKp8PBOSWgwiQSauXTzC7fvKMf3v/8k3cVxWvyuZK7cHKoqYxPH61Nx4yZ8BFibgaxCHVikqUdhEnMeJSw0fn5L2w4ZIAmKNoixPuYKStiyB/wcZKoEFKbcTlPIpCmPMc3QW6V3PIYTMpD8On08oaSSyk4ug5ALinhSiWWWwQ2/mQgsDpRqyDFAy4fNimg3JJLAyXgcSN+LPbzkcPOGsXKVJgZm8QnGhxelGSwrvqLKKU1WUjXFdJqNy7qnDKfIiGakq6j8URqJ5SzOciVBJiBEz4jeHRWZxoLwv3OyCSTNtPgK8is5vKM3GcLKcLfYfOQ/AHKV5mUbSgIBt9tHeDRvU5S0HbzEZYlwFlECdvWY13FWq2lU8CfKXsxouQWnfOFhDrTrVADm2j4DRRobiG659aCVs4G5Fz1vHd8OU7cv8ojlhe2BiVzvr4BtbKPPh1hL1yLNUTVQQnikxLYSKhjdQY7QB52fBVzIQ94ffsqXu+5MV8THb1yuB5rKrVfvzgOLBeYsRJUYLMoP4S13VHMmKKynk3pfDvEwmgAtpVSQ0mDoBgkg6JXdsGsATWDiRWTqZpgbM8I8+Y8TZHB1kgrT0hQzLPJm+D0vo8LGyw0O9q/Rlt7whbgK+i8RdeI9FpoY6fc8gV3SZpEcU9si/491Fau2gx3m78hvJJ2/wsNN4dy/jtKDV/XGEKMPZtHA7XjcsT11PLdwSXXO2bHJJFZrPbNn0PazTRo22hOj7dUtnfbTHl0vI2mWdtmmtO+JY912OzmiPWS1JnN3Ywf6pauSO297ppOd3hlpT5/C+iVbiFCCVL0JKK8bDfGQjxwAoPgi5xIgfE2AnOuxBKMLdYXTrXhqHOv+HF2PDMmkkcs+u++f4Vj9NkNe+IO6q5c9cR1+Mh33WNmKoK1T/8kM4Pr50sGY/KAC4D81dtY37J9vxnA29MBdBfx65Nw2k7u747nl+7enVs0r0+jRYLxFgjLLf3CddwfJB5rf3R4UzBi1ZhwnyAKQsdnY7SSmallUqUHI2ojqkQ62ZuD5RESc6mtWPLQ4usQjMmvUp+5zPIKW0A0U3eZTTN7aQzEC7l1G/XYYf/5nWMbs3eXuifzf4SAMAWGAHfq10zIqMZ9vaNy9phwNVLOBUSFV0k0t9rUlm4TdaShkr4ppKDcVHmAOJVozNypgD/BS7Bhed3Aioebah/sN/J8IrZp96aCrzSPTWmj0Xcf0sx9Sb//DxB116d7DwAA</value>
   </data>
-  <data name="EmailFormatError" xml:space="preserve">
-    <value>Email format is invalid</value>
-  </data>
-  <data name="EmailMaxLengthError" xml:space="preserve">
-    <value>Email length must smaller than 40 characters</value>
-  </data>
-  <data name="PasswordMinLengthError" xml:space="preserve">
-    <value />
-  </data>
-  <data name="UnhandledError" xml:space="preserve">
-    <value>Unhandled error occurred</value>
-  </data>
-  <data name="UserNameFormatError" xml:space="preserve">
-    <value />
-  </data>
-  <data name="UserNameIsUniqueError" xml:space="preserve">
-    <value />
-  </data>
-  <data name="UserNameMaxLengthError" xml:space="preserve">
-    <value />
-  </data>
-  <data name="UserNameMinLengthError" xml:space="preserve">
-    <value />
+  <data name="DefaultSchema" xml:space="preserve">
+    <value>dbo</value>
   </data>
 </root>

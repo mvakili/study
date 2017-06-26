@@ -101,9 +101,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Logic\Logic.csproj">
+    <ProjectReference Include="..\Logic\DAL.csproj">
       <Project>{43f7e058-78f2-461a-8b27-b9a5817aae40}</Project>
-      <Name>Logic</Name>
+      <Name>DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\WebApi\WebApi.csproj">
       <Project>{F301CBF0-0EC4-44CB-B380-935251522AF6}</Project>

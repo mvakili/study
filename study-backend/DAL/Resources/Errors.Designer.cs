@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Logic.Resources {
+namespace DAL.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Logic.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Logic.Resources.Errors", typeof(Errors).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DAL.Resources.Errors", typeof(Errors).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -88,7 +88,25 @@ namespace Logic.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Password and confrim password are nor equal.
+        /// </summary>
+        public static string PasswordAndConfirmPasswordNotEqualError {
+            get {
+                return ResourceManager.GetString("PasswordAndConfirmPasswordNotEqualError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password length must smaller than 20 characters.
+        /// </summary>
+        public static string PasswordMaxLengthError {
+            get {
+                return ResourceManager.GetString("PasswordMaxLengthError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username length must bigger or equal than 8 characters.
         /// </summary>
         public static string PasswordMinLengthError {
             get {
@@ -106,7 +124,16 @@ namespace Logic.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Entered username is registered before.
+        /// </summary>
+        public static string UserNameDuplicateError {
+            get {
+                return ResourceManager.GetString("UserNameDuplicateError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username format is invalid.
         /// </summary>
         public static string UserNameFormatError {
             get {
@@ -115,16 +142,7 @@ namespace Logic.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string UserNameIsUniqueError {
-            get {
-                return ResourceManager.GetString("UserNameIsUniqueError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Username length must smallerthan 21 characters.
         /// </summary>
         public static string UserNameMaxLengthError {
             get {
@@ -133,11 +151,20 @@ namespace Logic.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Username length must bigger than 4 characters.
         /// </summary>
         public static string UserNameMinLengthError {
             get {
                 return ResourceManager.GetString("UserNameMinLengthError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User Not Found.
+        /// </summary>
+        public static string UserNotFound {
+            get {
+                return ResourceManager.GetString("UserNotFound", resourceCulture);
             }
         }
     }

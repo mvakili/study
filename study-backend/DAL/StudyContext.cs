@@ -1,6 +1,6 @@
-using Logic.Entities;
+using DAL.Entities;
 
-namespace Logic
+namespace DAL
 {
     using System;
     using System.Data.Entity;
@@ -15,7 +15,7 @@ namespace Logic
         // If you wish to target a different database and/or database provider, modify the 'Model' 
         // connection string in the application configuration file.
         public StudyContext()
-            : base(@"data source=(LocalDb)\MSSQLLocalDB;initial catalog=Logic.Model;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework")
+            : base(@"Data Source=.;Initial Catalog=study;Integrated Security=True;Pooling=False")
         {
         }
 
