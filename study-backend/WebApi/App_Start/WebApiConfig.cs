@@ -14,15 +14,15 @@ namespace WebApi
     {
         public static void Register(HttpConfiguration config)
         {
+
             config.Formatters.JsonFormatter.SupportedMediaTypes
                 .Add(new MediaTypeHeaderValue("text/html"));
-            // Web API configuration and services
-            // Configure Web API to use only bearer token authentication.
-            //config.SuppressDefaultHostAuthentication();
-            //config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+
             config.EnableCors();
-            // Web API routes
+
             config.MapHttpAttributeRoutes();
+
+
             config.Routes.MapHttpRoute(
                 name: "API Default",
                 routeTemplate: "api/{controller}/{action}/{id}",

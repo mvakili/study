@@ -220,6 +220,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AccountController.SignIn.cs" />
     <Compile Include="Controllers\AccountController.Register.cs" />
+    <Compile Include="Controllers\AccountController.SignOut.cs" />
     <Compile Include="Controllers\AccountController.UsernameValidate.cs" />
     <Compile Include="Controllers\AccountController.EmailValidate.cs" />
     <Compile Include="Global.asax.cs">
@@ -256,16 +257,16 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Logic\DAL.csproj">
-      <Project>{43f7e058-78f2-461a-8b27-b9a5817aae40}</Project>
-      <Name>DAL</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{43f7e058-78f2-461a-8b27-b9a5817aae40}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

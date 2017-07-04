@@ -7,8 +7,6 @@ using System.Security.Claims;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Http;
-using DAL;
-using DAL.Entities;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;

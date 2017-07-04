@@ -15,7 +15,6 @@ namespace WebApi.Controllers
 {
 	public partial class AccountController
 	{
-
         [HttpPost]
         public ApiResult EmailValidate([FromBody] string input)
         {
