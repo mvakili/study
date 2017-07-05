@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Resources;
 using System.Text.RegularExpressions;
-using System.Web;
 using System.Web.Http;
 using DAL;
-using DAL.Entities;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using WebApi.Models;
 
 namespace WebApi.Controllers
@@ -26,7 +20,7 @@ namespace WebApi.Controllers
                 if (!input.StartsWith("@"))
                 {
                     result.ResultStatus = ResultStatus.Failed;
-                    result.Errors.Add(DAL.Resources.Errors.UserNameFormatError);
+                    result.Messages.Add(DAL.Resources.Errors.UserNameFormatError);
                 } else
                 {
                     input = input.Remove(0, 1);
@@ -35,17 +29,17 @@ namespace WebApi.Controllers
                 if (input.Length < 3)
                 {
                     result.ResultStatus = ResultStatus.Failed;
-                    result.Errors.Add(DAL.Resources.Errors.UserNameMinLengthError);
+                    result.Messages.Add(DAL.Resources.Errors.UserNameMinLengthError);
                 }
                 else if (input.Length > 20)
                 {
                     result.ResultStatus = ResultStatus.Failed;
-                    result.Errors.Add(DAL.Resources.Errors.UserNameMaxLengthError);
+                    result.Messages.Add(DAL.Resources.Errors.UserNameMaxLengthError);
                 }
                 else if (!Regex.IsMatch(input, "([A-Za-z._0-9]+)"))
                 {
                     result.ResultStatus = ResultStatus.Failed;
-                    result.Errors.Add(DAL.Resources.Errors.EmailFormatError);
+                    result.Messages.Add(DAL.Resources.Errors.EmailFormatError);
                 }
                 else
                 {
@@ -54,7 +48,7 @@ namespace WebApi.Controllers
                         if (context.Users.Any(u => u.UserName == input))
                         {
                             result.ResultStatus = ResultStatus.Failed;
-                            result.Errors.Add(DAL.Resources.Errors.UserNameDuplicateError);
+                            result.Messages.Add(DAL.Resources.Errors.UserNameDuplicateError);
                         }
                     }
                 }
@@ -63,9 +57,9 @@ namespace WebApi.Controllers
             }
             catch (Exception)
             {
-                result.Errors.Clear();
+                result.Messages.Clear();
                 result.ResultStatus = ResultStatus.Thrown;
-                result.Errors.Add(DAL.Resources.Errors.UnhandledError);
+                result.Messages.Add(DAL.Resources.Errors.UnhandledError);
                 return result;
             }
             

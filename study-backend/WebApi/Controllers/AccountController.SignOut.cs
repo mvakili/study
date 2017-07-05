@@ -1,15 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Resources;
-using System.Security.Claims;
-using System.Text.RegularExpressions;
-using System.Web;
+﻿using System.Web;
 using System.Web.Http;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.Owin.Security;
 using WebApi.Models;
 
 namespace WebApi.Controllers
@@ -32,7 +22,7 @@ namespace WebApi.Controllers
             }
             catch
             {
-                result.Errors.Clear();
+                result.Messages.Clear();
                 result.ResultStatus = ResultStatus.Thrown;
                 return result;
             }

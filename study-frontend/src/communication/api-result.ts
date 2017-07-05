@@ -2,7 +2,7 @@ import { ResultStatus } from './';
 
 export interface ApiResult {
     ResultStatus : ResultStatus;
-    Errors: string[];
+    Messages: string[];
 }
 
 export interface GenericApiResult<T> extends ApiResult {

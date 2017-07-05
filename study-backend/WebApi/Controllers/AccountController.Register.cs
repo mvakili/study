@@ -1,20 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Resources;
-using System.Text.RegularExpressions;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Http;
 using DAL;
 using DAL.Entities;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using WebApi.Models;
 
 namespace WebApi.Controllers
 {
-	public partial class AccountController
+    public partial class AccountController
 	{
         public class RegisterInput
         {
@@ -48,21 +40,21 @@ namespace WebApi.Controllers
                 if (input.Password != input.PasswordConfirm)
                 {
                     result.ResultStatus = ResultStatus.Failed;
-                    result.Errors.Add(DAL.Resources.Errors.PasswordAndConfirmPasswordNotEqualError);
+                    result.Messages.Add(DAL.Resources.Errors.PasswordAndConfirmPasswordNotEqualError);
                     return result;
                 }
 
                 if (input.Password.Length < 8)
                 {
                     result.ResultStatus = ResultStatus.Failed;
-                    result.Errors.Add(DAL.Resources.Errors.PasswordMinLengthError);
+                    result.Messages.Add(DAL.Resources.Errors.PasswordMinLengthError);
                     return result;
                 }
 
                 if (input.Password.Length > 20)
                 {
                     result.ResultStatus = ResultStatus.Failed;
-                    result.Errors.Add(DAL.Resources.Errors.PasswordMaxLengthError);
+                    result.Messages.Add(DAL.Resources.Errors.PasswordMaxLengthError);
                     return result;
                 }
 
@@ -72,18 +64,18 @@ namespace WebApi.Controllers
                     if (context.Users.Any(u => u.UserName == input.Username))
                     {
                         result.ResultStatus = ResultStatus.Failed;
-                        result.Errors.Add(DAL.Resources.Errors.UserNameDuplicateError);
+                        result.Messages.Add(DAL.Resources.Errors.UserNameDuplicateError);
                         return result;
                     }
                     else if (context.Users.Any(u => u.Email == input.Email))
                     {
                         result.ResultStatus = ResultStatus.Failed;
-                        result.Errors.Add(DAL.Resources.Errors.EmailDuplicateError);
+                        result.Messages.Add(DAL.Resources.Errors.EmailDuplicateError);
                         return result;
                     }
                     else
                     {
-                        context.Users.Add(new DAL.Entities.User
+                        context.Users.Add(new User
                         {
                             UserName = input.Username,
                             Email = input.Email,
@@ -95,7 +87,7 @@ namespace WebApi.Controllers
                 }
             } catch
             {
-                result.Errors.Clear();
+                result.Messages.Clear();
                 result.ResultStatus = ResultStatus.Thrown;
                 return result;
             }

@@ -5,22 +5,24 @@ import { Storage } from '@ionic/storage';
 import {Account} from './../../services';
 import { ResultStatus} from './../../communication';
 import {HomePage} from './../home/home';
-import {SignupPasswordPage} from './../signup-password/signup-password';
+import {SignupPage} from './../signup/signup';
 
 /**
- * Generated class for the SignupPage page.
+ * Generated class for the SignupPasswordPage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
 @IonicPage()
 @Component({
-  selector: 'page-signup',
-  templateUrl: 'signup.html',
+  selector: 'page-signup-password',
+  templateUrl: 'signup-password.html',
 })
-export class SignupPage {
+export class SignupPasswordPage {
   email: string;
   username: string;
+  password: string;
+  passwordConfirm: string;
 
   constructor(public navCtrl: NavController, public loadingCtrl: LoadingController, storage: Storage, public http: Http, public toastCtrl: ToastController, public navParams: NavParams) {
     if (navParams.get('email') == undefined)
@@ -28,12 +30,18 @@ export class SignupPage {
       navCtrl.popTo('HomePage');
     }
     this.email = navParams.get('email');
+
+    if (navParams.get('username') == undefined)
+    {
+      navCtrl.popTo(SignupPage);
+    }
+    this.username = navParams.get('username');
   }
 
-
-   public usernameValidate() {
+  public signUp() {
     let account = new Account(this.http);
 
+    let toast: Toast;
     let loader = this.loadingCtrl.create({
       content: "Please wait..."
     })
@@ -41,27 +49,19 @@ export class SignupPage {
     loader.present();
     
 
-    account.usernameValidate(this.username).then(data => {
+    account.register(this.username, this.password, this.email, this.passwordConfirm).then(data => {
       loader.dismiss();
-
       data.Messages.forEach(element => {
-          this.toastCtrl.create({
-            duration: 3000,
-            position: 'bottom',
-            message: element
-          }).present();
-        });
-
+        this.toastCtrl.create({
+          duration: 3000,
+          position: 'bottom',
+          message: element
+        }).present();
+      });
       if(data.ResultStatus != ResultStatus.Successful)
       {
-        
+
       } else {
-        this.navCtrl.push(SignupPasswordPage,
-            {
-              email: this.email,
-              username: this.username
-            }
-          );
 
       }
     }).catch(err => {

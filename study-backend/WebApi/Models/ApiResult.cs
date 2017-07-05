@@ -8,7 +8,7 @@ namespace WebApi.Models
     public class ApiResult
     {
         public ResultStatus ResultStatus { get; set; } = ResultStatus.Successful;
-        public List<string> Errors { get; set; } = new List<string>();
+        public List<string> Messages { get; set; } = new List<string>();
     }
 
     public class ApiResult<T> : ApiResult
