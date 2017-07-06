@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, Grid, Slides, ToastController, Toast, IonicPage, NavParams } from 'ionic-angular';
+import { NavController, LoadingController, ToastController, Toast, IonicPage, NavParams } from 'ionic-angular';
 import {Http} from '@angular/http';
 import { Storage } from '@ionic/storage';
 import {Account} from './../../services';
 import { ResultStatus} from './../../communication';
-import {HomePage} from './../home/home';
 import {SignupPage} from './../signup/signup';
 import {MainPage} from './../main/main';
 /**
@@ -41,7 +40,6 @@ export class SignupPasswordPage {
   public signUp() {
     let account = new Account(this.http);
 
-    let toast: Toast;
     let loader = this.loadingCtrl.create({
       content: "Please wait..."
     })
