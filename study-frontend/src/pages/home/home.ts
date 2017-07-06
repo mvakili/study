@@ -5,7 +5,7 @@ import {Http, Headers, RequestOptions} from '@angular/http';
 import {Account} from './../../services';
 import { ResultStatus} from './../../communication';
 import {SignupPage} from './../signup/signup';
-
+import {MainPage} from './../main/main';
 @Component({
   selector: 'home-page',
   templateUrl: 'home.html'
@@ -30,7 +30,6 @@ export class HomePage {
   public signIn() {
     let account = new Account(this.http);
 
-    let toast: Toast;
     let loader = this.loadingCtrl.create({
       content: "Please wait..."
     })
@@ -50,7 +49,7 @@ export class HomePage {
 
       if(data.ResultStatus == ResultStatus.Successful)
       {
-
+        this.navCtrl.setRoot(MainPage);
       }
     }).catch(err => {
       loader.dismiss();
@@ -61,6 +60,7 @@ export class HomePage {
       }).present();
     });
   }
+  
 
   public emailValidate() {
     let account = new Account(this.http);
@@ -82,7 +82,7 @@ export class HomePage {
             message: element
           }).present();
         });
-      if(data.ResultStatus = ResultStatus.Successful)
+      if(data.ResultStatus == ResultStatus.Successful)
       {
         this.navCtrl.push(SignupPage,
           {

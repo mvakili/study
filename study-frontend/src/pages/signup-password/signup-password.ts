@@ -6,7 +6,7 @@ import {Account} from './../../services';
 import { ResultStatus} from './../../communication';
 import {HomePage} from './../home/home';
 import {SignupPage} from './../signup/signup';
-
+import {MainPage} from './../main/main';
 /**
  * Generated class for the SignupPasswordPage page.
  *
@@ -60,8 +60,9 @@ export class SignupPasswordPage {
       });
       if(data.ResultStatus == ResultStatus.Successful)
       {
-
+        this.navCtrl.setRoot(MainPage);
       }
+
     }).catch(err => {
       loader.dismiss();
       this.toastCtrl.create({

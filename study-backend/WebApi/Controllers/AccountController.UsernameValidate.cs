@@ -17,14 +17,6 @@ namespace WebApi.Controllers
 
             try
             {
-                if (!input.StartsWith("@"))
-                {
-                    result.ResultStatus = ResultStatus.Failed;
-                    result.Messages.Add(DAL.Resources.Errors.UserNameFormatError);
-                } else
-                {
-                    input = input.Remove(0, 1);
-                }
 
                 if (input.Length < 3)
                 {

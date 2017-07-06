@@ -28,7 +28,6 @@ namespace DAL.Entities
         public string Email { get; set; }
 
         [Required]
-        [Index(IsUnique = true)]
         [MaxLength(20, ErrorMessageResourceType = typeof(Resources.Errors), ErrorMessageResourceName = "PasswordMaxLengthError")]
         [MinLength(8, ErrorMessageResourceType = typeof(Resources.Errors), ErrorMessageResourceName = "PasswordMinLengthError")]
         public string Password { get; set; }

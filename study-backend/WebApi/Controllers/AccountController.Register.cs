@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Http;
 using DAL;
 using DAL.Entities;
@@ -82,10 +83,17 @@ namespace WebApi.Controllers
                             Password = input.Password
                         });
                         context.SaveChanges();
+
+                        result = SignIn(new SignInInput()
+                        {
+                            Username = input.Username,
+                            Password = input.Password,
+                            RememberMe = true
+                        });
                         return result;
                     }
                 }
-            } catch
+            } catch(Exception ex)
             {
                 result.Messages.Clear();
                 result.ResultStatus = ResultStatus.Thrown;
