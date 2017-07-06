@@ -48,10 +48,9 @@ export class HomePage {
           }).present();
         });
 
-      if(data.ResultStatus != ResultStatus.Successful)
+      if(data.ResultStatus == ResultStatus.Successful)
       {
 
-      } else {
       }
     }).catch(err => {
       loader.dismiss();
@@ -83,15 +82,13 @@ export class HomePage {
             message: element
           }).present();
         });
-      if(data.ResultStatus != ResultStatus.Successful)
+      if(data.ResultStatus = ResultStatus.Successful)
       {
-
-      } else {
         this.navCtrl.push(SignupPage,
-            {
-              email: this.email
-            }
-          );
+          {
+            email: this.email
+          }
+        );
       }
     }).catch(err => {
       loader.dismiss();

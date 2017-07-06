@@ -58,10 +58,8 @@ export class SignupPasswordPage {
           message: element
         }).present();
       });
-      if(data.ResultStatus != ResultStatus.Successful)
+      if(data.ResultStatus == ResultStatus.Successful)
       {
-
-      } else {
 
       }
     }).catch(err => {

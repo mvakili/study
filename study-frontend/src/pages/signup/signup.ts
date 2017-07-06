@@ -52,17 +52,14 @@ export class SignupPage {
           }).present();
         });
 
-      if(data.ResultStatus != ResultStatus.Successful)
+      if(data.ResultStatus == ResultStatus.Successful)
       {
-        
-      } else {
         this.navCtrl.push(SignupPasswordPage,
-            {
-              email: this.email,
-              username: this.username
-            }
-          );
-
+          {
+            email: this.email,
+            username: this.username
+          }
+        );
       }
     }).catch(err => {
       loader.dismiss();
