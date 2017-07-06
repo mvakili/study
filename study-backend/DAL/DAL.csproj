@@ -120,6 +120,10 @@
     <Compile Include="Migrations\201706261430235_init.Designer.cs">
       <DependentUpon>201706261430235_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707060259501_remove-password-unique.cs" />
+    <Compile Include="Migrations\201707060259501_remove-password-unique.Designer.cs">
+      <DependentUpon>201707060259501_remove-password-unique.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Resources\Errors.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -142,6 +146,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706261430235_init.resx">
       <DependentUpon>201706261430235_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707060259501_remove-password-unique.resx">
+      <DependentUpon>201707060259501_remove-password-unique.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Errors.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

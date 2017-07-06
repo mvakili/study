@@ -11,13 +11,15 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { SignupPage } from '../pages/signup/signup';
 import { SignupPasswordPage } from '../pages/signup-password/signup-password';
+import { MainPage } from '../pages/main/main';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage, 
     SignupPage,
-    SignupPasswordPage
+    SignupPasswordPage,
+    MainPage
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,8 @@ import { SignupPasswordPage } from '../pages/signup-password/signup-password';
     MyApp,
     HomePage,
     SignupPage,
-    SignupPasswordPage
+    SignupPasswordPage,
+    MainPage
   ],
   providers: [
     StatusBar,
