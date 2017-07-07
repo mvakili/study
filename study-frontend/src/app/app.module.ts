@@ -20,7 +20,8 @@ import { MainPage, TabIconTextContentPage } from '../pages/main/main';
     SignupPage,
     SignupPasswordPage,
     MainPage,
-    TabIconTextContentPage
+    TabIconTextContentPage,
+    MainPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +36,9 @@ import { MainPage, TabIconTextContentPage } from '../pages/main/main';
     SignupPage,
     SignupPasswordPage,
     MainPage,
-    TabIconTextContentPage
+    TabIconTextContentPage,
+    MainPage
+
   ],
   providers: [
     StatusBar,

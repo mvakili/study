@@ -18,8 +18,6 @@ export class HomePage {
   password: string;
 
   constructor(public navCtrl: NavController, public loadingCtrl: LoadingController, storage: Storage, public http: Http, public toastCtrl: ToastController) {
-    storage.ready().then(() => {
-    })
   }
 
   ngAfterViewInit()
