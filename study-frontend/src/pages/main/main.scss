@@ -1,3 +1,12 @@
 page-main {
+    ion-content {
+        background-image: url('./../images/signup-background.jpg');
+    }
 
+    .toolbar {
+        //min-height: inherit !important;
+    }
+    .toolbar-background {
+        background-color: inherit;
+    }
 }

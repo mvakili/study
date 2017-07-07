@@ -24,7 +24,43 @@ export class HomePage {
 
   ngAfterViewInit()
   {
-        this.slides.pager = false;
+    this.loginCheck();
+    this.slides.pager = false;
+  }
+
+  public loginCheck()
+  {
+    let account = new Account(this.http);
+  
+    let loader = this.loadingCtrl.create({
+      content: 'Please wait...'
+    })
+    loader.present();
+  
+    account.amILoggedIn().then(data => {
+      loader.dismiss();
+      data.Messages.forEach(element => {
+        this.toastCtrl.create({
+          duration: 3000,
+          position: 'bottom',
+          message: element
+        }).present();
+      });
+      if(data.ResultStatus == ResultStatus.Successful)
+      {
+        if(data.Data)
+        {
+          this.navCtrl.setRoot(MainPage);
+        }
+      }
+    }).catch(err => {
+      loader.dismiss();
+      this.toastCtrl.create({
+        duration: 3000,
+        position: 'bottom',
+        message: 'Couldn\'t connect to server'
+      }).present();
+    });
   }
 
   public signIn() {

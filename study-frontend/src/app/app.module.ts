@@ -11,7 +11,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { SignupPage } from '../pages/signup/signup';
 import { SignupPasswordPage } from '../pages/signup-password/signup-password';
-import { MainPage } from '../pages/main/main';
+import { MainPage, TabIconTextContentPage } from '../pages/main/main';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,8 @@ import { MainPage } from '../pages/main/main';
     HomePage, 
     SignupPage,
     SignupPasswordPage,
-    MainPage
+    MainPage,
+    TabIconTextContentPage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +34,8 @@ import { MainPage } from '../pages/main/main';
     HomePage,
     SignupPage,
     SignupPasswordPage,
-    MainPage
+    MainPage,
+    TabIconTextContentPage
   ],
   providers: [
     StatusBar,
