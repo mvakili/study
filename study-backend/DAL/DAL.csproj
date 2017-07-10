@@ -124,17 +124,11 @@
     <Compile Include="Migrations\201707060259501_remove-password-unique.Designer.cs">
       <DependentUpon>201707060259501_remove-password-unique.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707101300284_row-version.cs" />
+    <Compile Include="Migrations\201707101300284_row-version.Designer.cs">
+      <DependentUpon>201707101300284_row-version.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Resources\Errors.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Errors.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Resources\Messages.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Messages.resx</DependentUpon>
-    </Compile>
     <Compile Include="StudyContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -142,7 +136,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201706261430235_init.resx">
       <DependentUpon>201706261430235_init.cs</DependentUpon>
@@ -150,14 +143,18 @@
     <EmbeddedResource Include="Migrations\201707060259501_remove-password-unique.resx">
       <DependentUpon>201707060259501_remove-password-unique.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Errors.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Errors.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="Migrations\201707101300284_row-version.resx">
+      <DependentUpon>201707101300284_row-version.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\Messages.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Handlers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{9506535d-5f03-4312-9712-aff2f8099ab7}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

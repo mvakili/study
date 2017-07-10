@@ -1,6 +1,7 @@
 ﻿using System.Web;
 using System.Web.Http;
-using WebApi.Models;
+using Models.Api;
+using WebApi.Handlers;
 
 namespace WebApi.Controllers
 {
@@ -10,22 +11,17 @@ namespace WebApi.Controllers
         [HttpPost]
         public  ApiResult SignOut()
         {
-            var result = new ApiResult();
-
-            try
+            return new DataJob()
             {
-                if (HttpContext.Current.Session["UserId"] != null)
+                Do = (context, result) =>
                 {
-                    HttpContext.Current.Session.Remove("UserId");
+                    if (HttpContext.Current.Session["UserId"] != null)
+                    {
+                        HttpContext.Current.Session.Remove("UserId");
+                    }
+
                 }
-                return result;
-            }
-            catch
-            {
-                result.Messages.Clear();
-                result.ResultStatus = ResultStatus.Thrown;
-                return result;
-            }
+            }.Run();
         }
     }
 }

@@ -1,8 +1,9 @@
 ﻿using System.Linq;
 using System.Web;
 using System.Web.Http;
-using DAL;
-using WebApi.Models;
+using Models;
+using Models.Api;
+using WebApi.Handlers;
 
 namespace WebApi.Controllers
 {
@@ -18,32 +19,26 @@ namespace WebApi.Controllers
         [HttpPost]
         public  ApiResult SignIn([FromBody] SignInInput input)
         {
-            var result = new ApiResult();
 
-            try
+            return new DataJob()
             {
-                using (var context = new StudyContext())
+                Do = (context, result) =>
                 {
-                    var user = context.Users.FirstOrDefault(u => u.UserName == input.Username && u.Password == input.Password);
+                    var user =
+                        context.Users.FirstOrDefault(u => u.UserName == input.Username && u.Password == input.Password);
                     if (user != null)
                     {
                         HttpContext.Current.Session["UserId"] = user.Id;
-                        return result;
                     }
                     else
                     {
                         result.ResultStatus = ResultStatus.Failed;
-                        result.Messages.Add(DAL.Resources.Errors.UserNotFound);
-                        return result;
+                        result.Messages.Add(Models.Resources.Errors.UserNotFound);
                     }
                 }
-            }
-            catch
-            {
-                result.Messages.Clear();
-                result.ResultStatus = ResultStatus.Thrown;
-                return result;
-            }
+            }.Run();
+
+
         }
     }
 }

@@ -1,61 +1,49 @@
-﻿using System;
+﻿
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web.Http;
-using DAL;
-using WebApi.Models;
+using Models;
+using Models.Api;
+using WebApi.Handlers;
+
 
 namespace WebApi.Controllers
 {
-	public partial class AccountController
-	{
+    public partial class AccountController
+    {
 
         [HttpPost]
         public ApiResult UsernameValidate([FromBody] string input)
         {
-            var result = new ApiResult();
-
-            try
+            return new DataJob
             {
-
-                if (input.Length < 3)
+                Do = (context, result) =>
                 {
-                    result.ResultStatus = ResultStatus.Failed;
-                    result.Messages.Add(DAL.Resources.Errors.UserNameMinLengthError);
-                }
-                else if (input.Length > 20)
-                {
-                    result.ResultStatus = ResultStatus.Failed;
-                    result.Messages.Add(DAL.Resources.Errors.UserNameMaxLengthError);
-                }
-                else if (!Regex.IsMatch(input, "([A-Za-z._0-9]+)"))
-                {
-                    result.ResultStatus = ResultStatus.Failed;
-                    result.Messages.Add(DAL.Resources.Errors.EmailFormatError);
-                }
-                else
-                {
-                    using (var context = new StudyContext())
+                    if (input.Length < 3)
                     {
-                        if (context.Users.Any(u => u.UserName == input))
-                        {
-                            result.ResultStatus = ResultStatus.Failed;
-                            result.Messages.Add(DAL.Resources.Errors.UserNameDuplicateError);
-                        }
+                        result.ResultStatus = ResultStatus.Failed;
+                        result.Messages.Add(Models.Resources.Errors.UserNameMinLengthError);
                     }
-                }
-                return result;
+                    else if (input.Length > 20)
+                    {
+                        result.ResultStatus = ResultStatus.Failed;
+                        result.Messages.Add(Models.Resources.Errors.UserNameMaxLengthError);
+                    }
+                    else if (!Regex.IsMatch(input, "([A-Za-z._0-9]+)"))
+                    {
+                        result.ResultStatus = ResultStatus.Failed;
+                        result.Messages.Add(Models.Resources.Errors.EmailFormatError);
+                    }
+                    else
+                    {
+                        if (!context.Users.Any(u => u.UserName == input)) return;
+                        result.ResultStatus = ResultStatus.Failed;
+                        result.Messages.Add(Models.Resources.Errors.UserNameDuplicateError);
+                    }
 
-            }
-            catch (Exception)
-            {
-                result.Messages.Clear();
-                result.ResultStatus = ResultStatus.Thrown;
-                result.Messages.Add(DAL.Resources.Errors.UnhandledError);
-                return result;
-            }
-            
-            
+                }
+            }.Run();
+
         }
     }
 }

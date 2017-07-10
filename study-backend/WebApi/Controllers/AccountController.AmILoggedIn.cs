@@ -1,6 +1,8 @@
 ﻿using System.Web;
 using System.Web.Http;
-using WebApi.Models;
+using Models;
+using Models.Api;
+using WebApi.Handlers;
 
 namespace WebApi.Controllers
 {
@@ -8,29 +10,17 @@ namespace WebApi.Controllers
     {
 
         [HttpPost]
-        public  ApiResult<bool> AmILoggedIn()
+        public ApiResult<bool> AmILoggedIn()
         {
-            var result = new ApiResult<bool>();
 
-            try
+            return new Job<bool>
             {
+                Do = result =>
+                {
+                    result.Data = HttpContext.Current.Session?["UserId"] != null;
+                }
+            }.Run();
 
-                if (HttpContext.Current.Session?["UserId"] != null)
-                {
-                    result.Data = true;
-                }
-                else
-                {
-                    result.Data = false;
-                }
-                return result;
-            }
-            catch
-            {
-                result.Messages.Clear();
-                result.ResultStatus = ResultStatus.Thrown;
-                return result;
-            }
         }
     }
 }

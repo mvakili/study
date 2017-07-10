@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Http;
-using DAL;
 using DAL.Entities;
-using WebApi.Models;
+using Models;
+using Models.Api;
+using WebApi.Handlers;
 
 namespace WebApi.Controllers
 {
     public partial class AccountController
-	{
+    {
         public class RegisterInput
         {
             public string Username { get; set; }
@@ -21,84 +22,77 @@ namespace WebApi.Controllers
         [HttpPost]
         public ApiResult Register([FromBody] RegisterInput input)
         {
-            var result = new ApiResult();
-            try
+
+            return new DataJob
             {
-                result = EmailValidate(input.Email);
-
-                if (result.ResultStatus != ResultStatus.Successful)
+                Do = (context, result) =>
                 {
-                    return result;
-                }
+                    result = EmailValidate(input.Email);
 
-                result = UsernameValidate(input.Username);
+                    if (result.ResultStatus != ResultStatus.Successful)
+                    {
+                        return;
+                    }
 
-                if (result.ResultStatus != ResultStatus.Successful)
-                {
-                    return result;
-                }
+                    result = UsernameValidate(input.Username);
 
-                if (input.Password != input.PasswordConfirm)
-                {
-                    result.ResultStatus = ResultStatus.Failed;
-                    result.Messages.Add(DAL.Resources.Errors.PasswordAndConfirmPasswordNotEqualError);
-                    return result;
-                }
+                    if (result.ResultStatus != ResultStatus.Successful)
+                    {
+                        return;
+                    }
 
-                if (input.Password.Length < 8)
-                {
-                    result.ResultStatus = ResultStatus.Failed;
-                    result.Messages.Add(DAL.Resources.Errors.PasswordMinLengthError);
-                    return result;
-                }
-
-                if (input.Password.Length > 20)
-                {
-                    result.ResultStatus = ResultStatus.Failed;
-                    result.Messages.Add(DAL.Resources.Errors.PasswordMaxLengthError);
-                    return result;
-                }
-
-
-                using (var context = new StudyContext())
-                {
-                    if (context.Users.Any(u => u.UserName == input.Username))
+                    if (input.Password != input.PasswordConfirm)
                     {
                         result.ResultStatus = ResultStatus.Failed;
-                        result.Messages.Add(DAL.Resources.Errors.UserNameDuplicateError);
-                        return result;
+                        result.Messages.Add(Models.Resources.Errors.PasswordAndConfirmPasswordNotEqualError);
+                        return;
                     }
-                    else if (context.Users.Any(u => u.Email == input.Email))
+
+                    if (input.Password.Length < 8)
                     {
                         result.ResultStatus = ResultStatus.Failed;
-                        result.Messages.Add(DAL.Resources.Errors.EmailDuplicateError);
-                        return result;
+                        result.Messages.Add(Models.Resources.Errors.PasswordMinLengthError);
+                        return;
                     }
-                    else
-                    {
-                        context.Users.Add(new User
-                        {
-                            UserName = input.Username,
-                            Email = input.Email,
-                            Password = input.Password
-                        });
-                        context.SaveChanges();
 
-                        result = SignIn(new SignInInput()
-                        {
-                            Username = input.Username,
-                            Password = input.Password,
-                            RememberMe = true
-                        });
-                        return result;
+                    if (input.Password.Length > 20)
+                    {
+                        result.ResultStatus = ResultStatus.Failed;
+                        result.Messages.Add(Models.Resources.Errors.PasswordMaxLengthError);
+                        return;
                     }
-                }
-            } catch(Exception ex)
-            {
-                result.Messages.Clear();
-                result.ResultStatus = ResultStatus.Thrown;
-                return result;
-            }
+
+
+
+                        if (context.Users.Any(u => u.UserName == input.Username))
+                        {
+                            result.ResultStatus = ResultStatus.Failed;
+                            result.Messages.Add(Models.Resources.Errors.UserNameDuplicateError);
+                        }
+                        else if (context.Users.Any(u => u.Email == input.Email))
+                        {
+                            result.ResultStatus = ResultStatus.Failed;
+                            result.Messages.Add(Models.Resources.Errors.EmailDuplicateError);
+                        }
+                        else
+                        {
+                            context.Users.Add(new User
+                            {
+                                UserName = input.Username,
+                                Email = input.Email,
+                                Password = input.Password
+                            });
+                            context.SaveChanges();
+
+                            result = SignIn(new SignInInput
+                            {
+                                Username = input.Username,
+                                Password = input.Password,
+                                RememberMe = true
+                            });
+                        }
+                    }
+                }.Run();
 
         }
     }
